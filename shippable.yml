@@ -5,6 +5,9 @@ jdk:
    - openjdk6
    - openjdk7
    
+services:
+  - mysql
+   
    
 build:
   pre_ci_boot:
