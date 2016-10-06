@@ -4,10 +4,17 @@ jdk:
    - oraclejdk7
    - openjdk6
    - openjdk7
-
-after_success:
+   
+   
+build:
+  pre_ci_boot:
+    image_name: drydock/u14all
+    image_tag: tip
+    pull: true
+  ci:
    - mvn clean cobertura:cobertura
    - mvn test
+ 
 notifications:
   email: false
 
