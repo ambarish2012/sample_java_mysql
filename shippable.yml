@@ -2,11 +2,10 @@ language: java
 
 jdk:
    - oraclejdk7
-   
+
 services:
   - mysql
-   
-   
+
 build:
   pre_ci_boot:
     image_name: drydock/u14javall
