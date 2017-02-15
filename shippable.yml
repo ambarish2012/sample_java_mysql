@@ -11,8 +11,10 @@ build:
     image_name: drydock/u14javall
     image_tag: prod
   ci:
-   - mvn clean cobertura:cobertura
-   - mvn test
+   - echo $GCR_JSON_KEY
+   - echo $GCRCONFIGRESOURCE_INTEGRATION_JSON_KEY
+  # - mvn clean cobertura:cobertura
+  # - mvn test
  
 integrations:
   hub:
