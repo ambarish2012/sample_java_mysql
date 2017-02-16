@@ -12,7 +12,7 @@ build:
     image_tag: prod
   ci:
    - mvn clean cobertura:cobertura
-   - mvn test && echo test
+   - mvn test && "echo test"
  
 integrations:
   hub:
