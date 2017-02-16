@@ -13,11 +13,6 @@ build:
   ci:
    - mvn clean cobertura:cobertura
    - mvn test && "echo test"
- 
-integrations:
-  hub:
-    - integrationName: GCR
-      type: gcr
 
 notifications:
   email: false
