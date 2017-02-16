@@ -8,7 +8,7 @@ services:
 
 build:
   pre_ci_boot:
-    image_name: drydock/u14javall
+    image_name: drydock/u14jav
     image_tag: prod
   ci:
    - mvn clean cobertura:cobertura
