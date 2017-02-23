@@ -7,14 +7,20 @@ services:
   - mysql
 
 build:
+  pre_ci:
+   - "echo 'SSH: ${BUILD_NUMBER} HTTPS: ${JOB_NAME}' > test.txt"
+   - "envsubst < test.txt"
   pre_ci_boot:
     image_name: drydock/u14jav
     image_tag: prod
   ci:
+   - "echo 'SSH: ${BUILD_NUMBER} HTTPS: ${JOB_NAME}' > test.txt"
+   - "envsubst < test.txt"
    - mvn clean cobertura:cobertura
    - mvn test && "echo test"
    - echo $SPECIALCHARACTERSBRANCH_HTTPS_URL
    - echo $SPECIALCHARACTERSBRANCH_SSH_URL
+ 
 
 notifications:
   email: false
