@@ -17,6 +17,8 @@ build:
    - "echo 'SSH: ${BUILD_NUMBER} HTTPS: ${JOB_NAME}' > test.txt"
    - echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/mongo_image.env
    - cat $JOB_STATE/mongo_image.env
+   - ls -R /build/OUT
+   - cat /build/OUT/mongo_image/version.json
  #  - "envsubst < test.txt"
 #   - mvn clean cobertura:cobertura
 #   - mvn test && "echo test"
