@@ -15,10 +15,10 @@ build:
     image_tag: prod
   ci:
    - "echo 'SSH: ${BUILD_NUMBER} HTTPS: ${JOB_NAME}' > test.txt"
-   - echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/mongo_image.env
-   - cat $JOB_STATE/mongo_image.env
+   - echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/mongo-image.env
+   - cat $JOB_STATE/mongo-image.env
    - ls -R /build/OUT
-   - cat /build/OUT/mongo_image/version.json
+   - cat /build/OUT/mongo-image/version.json
  #  - "envsubst < test.txt"
 #   - mvn clean cobertura:cobertura
 #   - mvn test && "echo test"
