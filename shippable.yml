@@ -5,6 +5,9 @@ jdk:
 
 services:
   - mysql
+  
+env:
+  -  MVN_VERSION=$(mvn -q -Dexec.executable="echo" -Dexec.args='${project.version}' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec)
 
 build:
  # pre_ci:
@@ -15,8 +18,8 @@ build:
     image_tag: prod
   ci:
    - echo $MVN_VERSION
-   - MVN_VERSION=$(mvn -q -Dexec.executable="echo" -Dexec.args='${project.version}' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec)
-   - echo $MVN_VERSION
+  # - MVN_VERSION=$(mvn -q -Dexec.executable="echo" -Dexec.args='${project.version}' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec)
+  # - echo $MVN_VERSION
    - "echo 'SSH: ${BUILD_NUMBER} HTTPS: ${JOB_NAME}' > test.txt"
    - echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/mongo-image.env
    - cat $JOB_STATE/mongo-image.env
