@@ -44,7 +44,7 @@ integrations:
      bucket_name: elasticbeanstalk-us-west-2-544102397216
      image_name: library/mongo
      image_tag: "$BRANCH.$BUILD_NUMBER"
-     region: us-east-1
+     region: us-west-2
 
 notifications:
   email: false
