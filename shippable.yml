@@ -37,7 +37,7 @@ integrations:
      type: aws
      target: eb_docker
      application_name: MyApplication
-     env_name: myEnvironment",
+     env_name: myEnvironment
   #   branches:
   #     only:
   #       - March-2017
