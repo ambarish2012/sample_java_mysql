@@ -43,7 +43,7 @@ integrations:
          - March-2017
      bucket_name: elasticbeanstalk-us-west-2-544102397216
      image_name: library/mongo
-     image_tag:"$BRANCH.$BUILD_NUMBER",
+     image_tag: "$BRANCH.$BUILD_NUMBER"
      region: us-east-1
 
 notifications:
