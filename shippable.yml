@@ -31,7 +31,7 @@ build:
    - echo $SPECIALCHARACTERSBRANCH_HTTPS_URL
    - echo $SPECIALCHARACTERSBRANCH_SSH_URL
   push:
-    - "yes '' | eb init 'MyApplication' -r 'us-west-2' -p ''" 
+    - "yes '' | eb init MyApplication -r us-west-2" 
  
 integrations:
   deploy:
