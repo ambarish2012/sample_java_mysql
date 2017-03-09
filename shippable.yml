@@ -30,7 +30,6 @@ build:
 #   - mvn test && "echo test"
    - echo $SPECIALCHARACTERSBRANCH_HTTPS_URL
    - echo $SPECIALCHARACTERSBRANCH_SSH_URL
-   - "yes '' | eb init MyApplication -r us-west-2" 
    - echo "Testing"
  
 integrations:
