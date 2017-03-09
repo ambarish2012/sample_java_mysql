@@ -28,8 +28,8 @@ build:
  #  - "envsubst < test.txt"
 #   - mvn clean cobertura:cobertura
 #   - mvn test && "echo test"
-   - echo $SPECIALCHARACTERSBRANCH_HTTPS_URL
-   - echo $SPECIALCHARACTERSBRANCH_SSH_URL
+ #  - echo $SPECIALCHARACTERSBRANCH_HTTPS_URL
+ #  - echo $SPECIALCHARACTERSBRANCH_SSH_URL
    - echo "Testing"
  
 integrations:
