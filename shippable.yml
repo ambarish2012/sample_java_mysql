@@ -5,7 +5,11 @@ jdk:
    - openjdk6
    - openjdk7
 
-after_success:
+build:
+  pre_ci_boot:
+    image_name: drydock/u16javall
+    image_tag: master
+  on_success:
    - mvn clean cobertura:cobertura
    - mvn test
 notifications:
