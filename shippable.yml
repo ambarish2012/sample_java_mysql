@@ -14,7 +14,7 @@ build:
  #  - "echo 'SSH: ${BUILD_NUMBER} HTTPS: ${JOB_NAME}' > test.txt"
  #  - "envsubst < test.txt"
   pre_ci_boot:
-    image_name: drydock/u14javall
+    image_name: drydock/u16javall
     image_tag: master
   ci:
    - echo $MVN_VERSION
