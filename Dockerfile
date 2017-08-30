@@ -1,2 +1,2 @@
 FROM scratch
-ADD README.md
+ADD README.md README.md
