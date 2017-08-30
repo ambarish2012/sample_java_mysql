@@ -3,50 +3,22 @@ language: java
 jdk:
    - oraclejdk7
 
-services:
-  - mysql
+#services:
+#  - mysql
   
 #env:
 #  -  MVN_VERSION=$(mvn -q -Dexec.executable="echo" -Dexec.args='${project.version}' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec)
 
 build:
- # pre_ci:
- #  - "echo 'SSH: ${BUILD_NUMBER} HTTPS: ${JOB_NAME}' > test.txt"
- #  - "envsubst < test.txt"
-  pre_ci_boot:
-    image_name: drydock/u16javall
-    image_tag: master
   ci:
-   - echo $MVN_VERSION
-  # - MVN_VERSION=$(mvn -q -Dexec.executable="echo" -Dexec.args='${project.version}' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec)
-  # - echo $MVN_VERSION
-  # - "echo 'SSH: ${BUILD_NUMBER} HTTPS: ${JOB_NAME}' > test.txt"
-  # - echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/mongo-image.env
-  # - cat $JOB_STATE/mongo-image.env
-  # - ls -R /build/OUT
-  # - cat /build/OUT/mongo-image/version.json
- #  - "envsubst < test.txt"
-#   - mvn clean cobertura:cobertura
-#   - mvn test && "echo test"
- #  - echo $SPECIALCHARACTERSBRANCH_HTTPS_URL
- #  - echo $SPECIALCHARACTERSBRANCH_SSH_URL
-   - echo "Testing"
+    - shippable_retry npm install
+    - shippable_retry npm run build
+    - if [ "$BRANCH" == "master" ]; then IMAGE_NAME="amurphy/master:latest"; else IMAGE_NAME="amurphy/August-2017:latest"; fi
+    - docker build -t $IMAGE_NAME .
+   # - docker push $IMAGE_NAME
+    - echo "versionName=latest" >> $JOB_STATE/shipdemo-img-$BRANCH.env
+    - echo "buildNumber=$BUILD_NUMBER" >> $JOB_STATE/shipdemo-img-$BRANCH.env
  
-integrations:
-  deploy:
-   - integrationName: AWS
-     type: aws
-     target: eb_docker
-     application_name: MyApplication
-     env_name: myEnvironment
-  #   branches:
-  #     only:
-  #       - March-2017
-     bucket_name: elasticbeanstalk-us-west-2-544102397216
-     image_name: library/mongo
-     image_tag: "$BRANCH.$BUILD_NUMBER"
-     region: us-west-2
-
 notifications:
   email: false
 
