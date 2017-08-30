@@ -13,7 +13,7 @@ build:
   ci:
 #    - shippable_retry npm install
 #    - shippable_retry npm run build
-    - if [ "$BRANCH" == "master" ]; then IMAGE_NAME="amurphy/master:latest"; else IMAGE_NAME="amurphy/august2017:latest"; fi
+    - if [ "$BRANCH" == "August-2017" ]; then IMAGE_NAME="amurphy/master:latest"; else IMAGE_NAME="amurphy/august2017:latest"; fi
     - docker build -t $IMAGE_NAME .
    # - docker push $IMAGE_NAME
     - echo "versionName=latest" >> $JOB_STATE/shipdemo-img-$BRANCH.env
