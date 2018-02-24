@@ -12,6 +12,7 @@ build:
     image_name: drydock/u14javall
     image_tag: master
   on_success:
+   - mvn -v
    - mvn clean cobertura:cobertura
    - mvn test
 notifications:
