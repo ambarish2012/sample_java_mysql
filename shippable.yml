@@ -2,12 +2,16 @@ language: java
 
 jdk:
    - oraclejdk7
+   - oraclejdk8
+   - oraclejdk9
    - openjdk6
    - openjdk7
+   - openjdk8
+   - openjdk9
 
 build:
   pre_ci_boot:
-    image_name: drydock/u16javall
+    image_name: drydock/u14javall
     image_tag: master
   on_success:
    - mvn clean cobertura:cobertura
