@@ -8,9 +8,9 @@ jdk:
    - openjdk9
 
 build:
-  pre_ci_boot:
-    image_name: drydock/u14javall
-    image_tag: master
+#  pre_ci_boot:
+#    image_name: drydock/u14javall
+#    image_tag: master
   on_success:
    - mvn -v
    - mvn clean cobertura:cobertura
