@@ -17,3 +17,5 @@ build:
 notifications:
   email: false
 
+services:
+ - mysql
